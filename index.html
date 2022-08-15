@@ -15,8 +15,6 @@
             <p>weather info here</p>
         </div>
     </header>
-    
-
     <div>
         <button type="button" class="btn btn-primary btn-lg locationBtn" >Change Location</button>
     </div>
@@ -31,7 +29,17 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+                <form>
+                    <fieldset>
+                      <legend>Legend</legend>
+                      <div class="form-group row">
+                      <div class="form-group">
+                        <label for="exampleZipCode" class="form-label mt-4">Zip Code</label>
+                        <input type="text" class="form-control" id="exampleZipCode" aria-describedby="emailHelp" placeholder="Enter Zipcode">
+                        </div>
+                      </fieldset>
+                    </fieldset>
+                  </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">Save changes</button>
