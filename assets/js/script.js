@@ -11,3 +11,9 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+
+    
+$('.locationBtn').click( "click", function() {
+    $('.modal-content').modal('show');
+});
