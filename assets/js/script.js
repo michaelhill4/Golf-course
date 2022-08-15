@@ -29,3 +29,7 @@ function getWeatherApi() {
 getWeatherApi()
 
 
+    
+$('.locationBtn').click( "click", function() {
+    $('.modal-content').modal('show');
+});
