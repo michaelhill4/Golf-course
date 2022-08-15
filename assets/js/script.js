@@ -1,3 +1,4 @@
+
 // Use a CSS framework other than Bootstrap.
 
 // Be deployed to GitHub Pages.
@@ -58,8 +59,4 @@ getWeatherApi()
 $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
 })
-// <<<<<<< HEAD
-// });
-// =======
-// });
-//f8d5d68f8802af9312f5882986939bb3c6df4f6a
+
