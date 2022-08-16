@@ -25,6 +25,7 @@
 
 
 // golf course fetch call for Columbus coordinates within 10 mile radius
+var fetchbutton = document.querySelectorAll(".btn btn-primary")
 const options = {
 	method: 'GET',
 	headers: {
@@ -33,10 +34,11 @@ const options = {
 	}
 };
 
-fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+
+
+
+
+
 //Columbus weather fetch call
 function getWeatherApi() {
 
