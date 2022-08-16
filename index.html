@@ -1,17 +1,3 @@
-
-<!--index.html created-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="./assets/js/script.js"></script>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +15,6 @@
             <p>weather info here</p>
         </div>
     </header>
-    
-
     <div>
         <button type="button" class="btn btn-primary btn-lg locationBtn" >Change Location</button>
     </div>
@@ -45,7 +29,16 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+                <form>
+                    <fieldset>
+                      <div class="form-group row">
+                      <div class="form-group">
+                        <label for="exampleZipCode" class="form-label mt-4">Zip Code</label>
+                        <input type="text" class="form-control" id="exampleZipCode" aria-describedby="emailHelp" placeholder="Enter Zipcode">
+                        </div>
+                      </fieldset>
+                    </fieldset>
+                  </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">Save changes</button>
