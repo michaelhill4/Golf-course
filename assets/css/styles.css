@@ -1,0 +1,24 @@
+.jumbotron {
+    background-image: url(../img/freshgolf.jpg);
+    width: 100vw;
+    height: 150%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size:  100% 100%;
+    image-rendering: auto;
+    
+}
+
+h1 {
+    color: white;
+    font-size: 115px;
+}
+.card {
+    margin: 20px;
+    width: 10%;
+    height: 180px;
+    color: white;
+    background-color: gray;
+    flex-direction: column;
+}

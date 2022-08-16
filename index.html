@@ -9,52 +9,52 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <header>
-        <h1 class="jumbotron text-center">Golf Course Finder</h1>
-        <div>
-            <p>weather info here</p>
+  <header>
+    <h1 class="jumbotron text-center">Golf Course Finder</h1>
+        <div class="card">
+            <p>Location:</p>
+            <p>Temperature:</p>
+            <p>Weather:</p>
+            <button type="button" class="btn btn-primary locationBtn" >Change Location</button>
         </div>
+       
     </header>
     <div class="col-2">
-        <button type="button" class="btn btn-primary locationBtn" >Change Location</button>
+        
+        <h2 class="results">Results</h2>
     </div>
-    <div>
-      <h1>Results</h1>
-    </div>
-    
     <div class="modal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Select Location</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">x</span>
               </button>
             </div>
             <div class="modal-body">
                 <form>
                     <fieldset>
-                      <div class="form-group row">
                       <div class="form-group">
-                        <label for="exampleZipCode" class="form-label mt-4">Zip Code</label>
+                        <label for="exampleZipCode" class="form-label">Zip Code</label>
                         <input type="text" class="form-control" id="exampleZipCode" aria-describedby="emailHelp" placeholder="Enter Zipcode">
                         </div>
                     </fieldset>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Select Radius</label>
                       <select class="form-control" id="exampleFormControlSelect1">
-                        <option>10</option>
-                        <option>20</option>
-                        <option>30</option>
-                        <option>40</option>
-                        <option>50</option>
+                        <option>10 miles</option>
+                        <option>20 miles</option>
+                        <option>30 miles</option>
+                        <option>40 miles</option>
+                        <option>50 miles</option>
                       </select>
                     </div>
                   </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
