@@ -27,7 +27,9 @@ var weatherEl = document.getElementById("weatherEl")
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("searchContainer")
-
+var locationEl =  document.getElementById("location")
+var tempEl = document.getElementById("temp")
+var skyTextEl = document.getElementById("weatherText")
 
 function golfApi(){
     const options = {
@@ -64,27 +66,26 @@ console.log(searchContainer)
 
 //Columbus weather fetch call
 function getWeatherApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&appid=01c6acda042379425ee30a68789c29c5';
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
 
     fetch(requestUrl)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
-        console.log(data.city.name);
-        console.log(data.list[0].weather[0].main);
-        console.log(data.list[0].main.temp);
-        console.log(data.list[0].wind);
-        
-        // var weatherLi = data
-        // console.log(weatherLi)
-        // weatherLi.append(data.city.name)  
+        var wCity = data.city.name
+        console.log(wCity)
+        locationEl.append(wCity)
+
+        var wTemp = data.list[0].main.temp
+        tempEl.append(wTemp + "°F")
+        // need to round value to whole number
+
+        var wSky = data.list[0].weather[0].main
+        skyTextEl.append(wSky) 
       })
     }
       
-    
-
 getWeatherApi()
 
     
