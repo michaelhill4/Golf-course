@@ -65,4 +65,3 @@ getWeatherApi()
 $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
 })
-
