@@ -64,7 +64,6 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=36.569103
 }
 golfApi()
 
-
 //Columbus weather fetch call
 function getWeatherApi() {
     var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
