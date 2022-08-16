@@ -26,7 +26,7 @@
 
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
-var searchContainer = document.getElementById("searchContainer")
+var searchContainer = document.getElementById("results")
 
 
 function golfApi(){
@@ -59,7 +59,6 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=36.569103
     })
 }
 golfApi()
-console.log(searchContainer)
 
 
 //Columbus weather fetch call
