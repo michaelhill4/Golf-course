@@ -77,7 +77,7 @@ function getWeatherApi() {
         console.log(wCity)
         locationEl.append(wCity)
 
-        var wTemp = data.list[0].main.temp
+        var wTemp = parseInt(data.list[0].main.temp)
         tempEl.append(wTemp + "°F")
         // need to round value to whole number
 
