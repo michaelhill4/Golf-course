@@ -21,7 +21,7 @@
 
 // Finally, You must add your project to the portfolio that you created in Module 2.
 
-
+var weatherEl = document.getElementById("weatherEl")
 
 
 // golf course fetch call for Columbus coordinates within 10 mile radius
@@ -41,9 +41,8 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
 
 //Columbus weather fetch call
 function getWeatherApi() {
-
     var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&appid=01c6acda042379425ee30a68789c29c5';
-  
+
     fetch(requestUrl)
       .then(function (response) {
         return response.json();
@@ -54,9 +53,13 @@ function getWeatherApi() {
         console.log(data.list[0].weather[0].main);
         console.log(data.list[0].main.temp);
         console.log(data.list[0].wind);
+        
+        // var weatherLi = document.createElement("li")
+        // console.log(weatherLi)
+        // weatherLi.append(data.city.name)  
       })
     }
-    
+      
     
 
 getWeatherApi()
