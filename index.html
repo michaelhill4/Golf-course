@@ -15,8 +15,11 @@
             <p>weather info here</p>
         </div>
     </header>
+    <div class="col-2">
+        <button type="button" class="btn btn-primary locationBtn" >Change Location</button>
+    </div>
     <div>
-        <button type="button" class="btn btn-primary btn-lg locationBtn" >Change Location</button>
+      <h1>Results</h1>
     </div>
     
     <div class="modal">
@@ -25,7 +28,7 @@
             <div class="modal-header">
               <h5 class="modal-title">Select Location</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"></span>
+                <span aria-hidden="true">x</span>
               </button>
             </div>
             <div class="modal-body">
@@ -36,8 +39,17 @@
                         <label for="exampleZipCode" class="form-label mt-4">Zip Code</label>
                         <input type="text" class="form-control" id="exampleZipCode" aria-describedby="emailHelp" placeholder="Enter Zipcode">
                         </div>
-                      </fieldset>
                     </fieldset>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Select Radius</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>40</option>
+                        <option>50</option>
+                      </select>
+                    </div>
                   </form>
             </div>
             <div class="modal-footer">
@@ -47,6 +59,7 @@
           </div>
         </div>
     </div>
+    
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
