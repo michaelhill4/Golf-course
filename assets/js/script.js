@@ -54,7 +54,7 @@ function getWeatherApi() {
         console.log(data.list[0].main.temp);
         console.log(data.list[0].wind);
         
-        // var weatherLi = document.createElement("li")
+        // var weatherLi = data
         // console.log(weatherLi)
         // weatherLi.append(data.city.name)  
       })
