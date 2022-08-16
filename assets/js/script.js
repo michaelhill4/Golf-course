@@ -26,31 +26,40 @@
 
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
-		'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
-	}
-};
+var searchContainer = document.getElementById("searchContainer")
+
 
 function golfApi(){
-    var getUrl = 'https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330'
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
+        }
+    };
 
-    fetch(getUrl)
-	.then(function (response){
-        return response.json();
+fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=36.56910381018662&lng=-121.95035631683683', options)
+	.then(function (response) {
+        return response.json()
     })
-	.then(function (data){
-        console.log(data);
-    //     for (var i=0; i < data.length; i++){
+	.then(function (data) {
+        if(data.courses.length > 0){
+        console.log(data)
+        for (var i=0; i < data.courses.length; i++){
+            console.log(data.courses[i].name)
 
-    //     var courseName = document.createElement('p');
-    //     courseName.textContent = data[i];
-    //     }
-
-    // })
-})}
+        var courseName = document.createElement('ul');
+        courseName.textContent = data.courses[i].name;
+        console.log(courseName)
+        searchContainer.append(courseName)
+        var courseDistance = document.createElement('li')
+        courseDistance.textContent = data.courses[i].distance + " miles away";
+        searchContainer.append(courseDistance)
+        }}
+    })
+}
+golfApi()
+console.log(searchContainer)
 
 
 //Columbus weather fetch call
