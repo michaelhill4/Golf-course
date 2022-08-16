@@ -47,13 +47,17 @@ function getWeatherApi() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        console.log(data)
+        console.log(data.city.name);
+        console.log(data.list[0].weather[0].main);
+        console.log(data.list[0].main.temp);
+        console.log(data.list[0].wind);
       })
     }
-
     
-getWeatherApi()
+    
 
+getWeatherApi()
 
     
 $('.locationBtn').click( "click", function() {
