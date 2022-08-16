@@ -37,6 +37,8 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+
 //Columbus weather fetch call
 function getWeatherApi() {
 
@@ -47,13 +49,17 @@ function getWeatherApi() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        console.log(data)
+        console.log(data.city.name);
+        console.log(data.list[0].weather[0].main);
+        console.log(data.list[0].main.temp);
+        console.log(data.list[0].wind);
       })
     }
-
     
-getWeatherApi()
+    
 
+getWeatherApi()
 
     
 $('.locationBtn').click( "click", function() {
