@@ -93,8 +93,8 @@ $('.locationBtn').click( "click", function() {
 });
 
 $(".saveBtn").on("click", function () {
-//    var zipCode = $(this).siblings("form-label").input();
-//    console.log(zipCode);
-   var withinDistance = $(this).children(".distance").value();
+   var zipCode = document.getElementById("exampleZipCode").value;
+   console.log(zipCode);
+   var withinDistance = document.getElementById("exampleFormControlSelect1").value;
    console.log(withinDistance);
 })
