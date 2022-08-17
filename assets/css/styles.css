@@ -40,4 +40,23 @@ h1 {
 
 #results {
     color: whitesmoke;
+    margin: 30px;
+    font-size: 20px;
 }
+#results li {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+p {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+#resultsHeader {
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
