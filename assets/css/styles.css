@@ -18,8 +18,9 @@ body {
 }
 
 h1 {
-    color: white;
+    color: whitesmoke;
     font-size: 115px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .card {
     margin: 20px;
@@ -34,7 +35,7 @@ h1 {
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(206, 203, 203, 0.2);
 }
 
 #results {
