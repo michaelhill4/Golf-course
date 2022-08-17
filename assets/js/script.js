@@ -55,10 +55,10 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=36.569103
         var courseName = document.createElement('ul');
         courseName.textContent = data.courses[i].name;
         console.log(courseName)
-        searchContainer.append(courseName)
+        // searchContainer.append(courseName)
         var courseDistance = document.createElement('li')
         courseDistance.textContent = data.courses[i].distance + " miles away";
-        searchContainer.append(courseDistance)
+        // searchContainer.append(courseDistance)
         }}
     })
 }
@@ -79,7 +79,6 @@ function getWeatherApi() {
 
         var wTemp = parseInt(data.list[0].main.temp)
         tempEl.append(wTemp + "°F")
-        // need to round value to whole number
 
         var wSky = data.list[0].weather[0].main
         skyTextEl.append(wSky) 
@@ -93,3 +92,9 @@ $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
 });
 
+$(".saveBtn").on("click", function () {
+//    var zipCode = $(this).siblings("form-label").input();
+//    console.log(zipCode);
+   var withinDistance = $(this).children(".distance").value();
+   console.log(withinDistance);
+})
