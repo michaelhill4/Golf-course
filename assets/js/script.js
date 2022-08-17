@@ -29,73 +29,102 @@ var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("results")
 
 
-var locationEl =  document.getElementById("location")
+var locationEl = document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 
-function golfApi(){
+function golfDetailsApi() {
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
-    }
-
-fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
-	.then(function (response) {
-        return response.json()
-    })
-	.then(function (data) {
-        if(data.courses.length > 0){
-        console.log(data)
-        for (var i=0; i < data.courses.length; i++){
-            console.log(data.courses[i].name)
-
-        var courseName = document.createElement('ul');
-        courseName.textContent = data.courses[i].name;
-        console.log(courseName)
-        searchContainer.append(courseName)
-        var courseDistance = document.createElement('li')
-        courseDistance.textContent = data.courses[i].distance + " miles away";
-        searchContainer.append(courseDistance)
-        }}
-    })
+    };
+    
+    fetch('https://golf-course-finder.p.rapidapi.com/course/details?zip=93953&name=Pebble%20Beach%20Golf%20Links', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
 }
 
-golfApi()
+golfDetailsApi()
+
+// function golfApi() {
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+//             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
+//         }
+//     }
+
+//     fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
+//         .then(function (response) {
+//             return response.json()
+//         })
+//         .then(function (data) {
+//             if (data.courses.length > 0) {
+//                 console.log(data)
+//                 for (var i = 0; i < data.courses.length; i++) {
+//                     console.log(data.courses[i].name)
+
+//                     // var courseName = document.createElement('ul');
+//                     // courseName.textContent = data.courses[i].name;
+//                     // console.log(courseName)
+//                     // searchContainer.append(courseName)
+//                     // var courseDistance = document.createElement('li')
+//                     // courseDistance.textContent = data.courses[i].distance + " miles away";
+//                     // searchContainer.append(courseDistance)
+//                 }
+//             }
+//         })
+// }
+// golfApi()
+
+// function searchZip() {
+//     golfApi()
+//     var zipCode = document.getElementById("exampleZipCode").value;
+//     if (zipCode === data.courses[i].zip_code) {
+//         var courseName = document.createElement('li');
+//         courseName.textContent = data.courses[i].name + "  -  " + data.courses[i].distance;
+//         console.log(courseName)
+//         searchContainer.append(courseName)
+//     }
+
+// }
 
 //Columbus weather fetch call
 function getWeatherApi() {
     var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
 
     fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        var wCity = data.city.name
-        console.log(wCity)
-        locationEl.append(wCity)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var wCity = data.city.name
+            console.log(wCity)
+            locationEl.append(wCity)
 
-        var wTemp = parseInt(data.list[0].main.temp)
-        tempEl.append(wTemp + "°F")
+            var wTemp = parseInt(data.list[0].main.temp)
+            tempEl.append(wTemp + "°F")
 
-        var wSky = data.list[0].weather[0].main
-        skyTextEl.append(wSky) 
-      })
-    }
-      
+            var wSky = data.list[0].weather[0].main
+            skyTextEl.append(wSky)
+        })
+}
+
 getWeatherApi()
 
-    
-$('.locationBtn').click( "click", function() {
+
+$('.locationBtn').click("click", function () {
     $('.modal').modal('show');
 });
 
 $(".saveBtn").on("click", function () {
-   var zipCode = document.getElementById("exampleZipCode").value;
-   console.log(zipCode);
-   var withinDistance = document.getElementById("exampleFormControlSelect1").value;
-   console.log(withinDistance);
+    var zipCode = document.getElementById("exampleZipCode").value;
+    console.log(zipCode);
+    var withinDistance = document.getElementById("exampleFormControlSelect1").value;
+    console.log(withinDistance);
 })
