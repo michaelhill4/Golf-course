@@ -66,7 +66,7 @@ golfApi()
 
 //Columbus weather fetch call
 function getWeatherApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?zip=${locationInput},us&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
     //{curly ${var} brackets for user input on zip code}
     
     fetch(requestUrl)
