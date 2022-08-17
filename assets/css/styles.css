@@ -8,7 +8,7 @@ body {
 .jumbotron {
     background-image: url(../img/freshgolf.jpg);
     width: 100vw;
-    height: 150%;
+    height: 160%;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
@@ -18,8 +18,9 @@ body {
 }
 
 h1 {
-    color: white;
+    color: whitesmoke;
     font-size: 115px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .card {
     margin: 20px;
@@ -34,9 +35,28 @@ h1 {
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(206, 203, 203, 0.2);
 }
 
 #results {
     color: whitesmoke;
+    margin: 30px;
+    font-size: 20px;
 }
+#results li {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+p {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+#resultsHeader {
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+

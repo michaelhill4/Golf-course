@@ -18,7 +18,6 @@
 // Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id-naming conventions, indentation, quality comments, etc.).
 
 // Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
 // Finally, You must add your project to the portfolio that you created in Module 2.
 
 var weatherEl = document.getElementById("weatherEl")
@@ -59,6 +58,11 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
             var courseDistance = document.createElement('li')
             courseDistance.textContent = data.courses[i].distance + " miles away";
             searchContainer.append(courseDistance)
+
+        var courseName = document.createElement('li');
+        courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
+        console.log(courseName)
+        searchContainer.append(courseName)
         }}
     })
 }
