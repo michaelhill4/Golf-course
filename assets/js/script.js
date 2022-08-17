@@ -32,22 +32,30 @@ var locationEl = document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 
-function golfDetailsApi() {
+// function golfDetailsApi() {
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+//             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
+//         }
+
+//     };
+    
+//     fetch('https://golf-course-finder.p.rapidapi.com/course/details?zip=93953&name=Pebble%20Beach%20Golf%20Links', options)
+//         .then(response => response.json())
+//         .then(response => console.log(response))
+//         .catch(err => console.error(err));
+//     }
+
+function golfApi() {
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
-
-    };
-    
-    fetch('https://golf-course-finder.p.rapidapi.com/course/details?zip=93953&name=Pebble%20Beach%20Golf%20Links', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
     }
-
 fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
 	.then(function (response) {
         return response.json()
@@ -64,41 +72,9 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
         searchContainer.append(courseName)
         }}
     })
+}
 
-
-golfDetailsApi()
-
-// function golfApi() {
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
-//             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
-//         }
-//     }
-
-//     fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (data) {
-//             if (data.courses.length > 0) {
-//                 console.log(data)
-//                 for (var i = 0; i < data.courses.length; i++) {
-//                     console.log(data.courses[i].name)
-
-//                     // var courseName = document.createElement('ul');
-//                     // courseName.textContent = data.courses[i].name;
-//                     // console.log(courseName)
-//                     // searchContainer.append(courseName)
-//                     // var courseDistance = document.createElement('li')
-//                     // courseDistance.textContent = data.courses[i].distance + " miles away";
-//                     // searchContainer.append(courseDistance)
-//                 }
-//             }
-//         })
-// }
-// golfApi()
+golfApi()
 
 // function searchZip() {
 //     golfApi()
