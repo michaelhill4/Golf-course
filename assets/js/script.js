@@ -62,6 +62,7 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
         }}
     })
 }
+
 golfApi()
 
 //Columbus weather fetch call
