@@ -79,7 +79,6 @@ function getWeatherApi() {
 
         var wTemp = parseInt(data.list[0].main.temp)
         tempEl.append(wTemp + "°F")
-        // need to round value to whole number
 
         var wSky = data.list[0].weather[0].main
         skyTextEl.append(wSky) 
@@ -93,3 +92,9 @@ $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
 });
 
+$(".saveBtn").on("click", function () {
+   var zipCode = document.getElementById("exampleZipCode").value;
+   console.log(zipCode);
+   var withinDistance = document.getElementById("exampleFormControlSelect1").value;
+   console.log(withinDistance);
+})
