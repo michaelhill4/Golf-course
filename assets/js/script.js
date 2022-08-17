@@ -28,7 +28,7 @@ var weatherEl = document.getElementById("weatherEl")
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("results")
 
-var searchContainer = document.getElementById("searchContainer")
+
 var locationEl =  document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
@@ -40,9 +40,9 @@ function golfApi(){
             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
-    };
+    }
 
-fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=36.56910381018662&lng=-121.95035631683683', options)
+fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
 	.then(function (response) {
         return response.json()
     })
