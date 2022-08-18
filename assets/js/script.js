@@ -68,6 +68,7 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
         for (var i=0; i < data.courses.length; i++){
             console.log(data.courses[i].name)
 
+
         var courseName = document.createElement('li');
         courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
         console.log(courseName)
