@@ -71,12 +71,6 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
               
     }
     
-            for (var i =0; i < data.courses.length; i++); {
-              var row = $("<div>");
-              row.addClass("card")
-              $("#appendCards").append(row);
-              
-            }  
     })
 }
 golfApi()
