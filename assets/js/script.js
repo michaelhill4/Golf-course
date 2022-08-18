@@ -112,3 +112,5 @@ $(".saveBtn").on("click", function () {
    getWeatherApi(zipCode)
    }
 })
+
+renderLastData()
