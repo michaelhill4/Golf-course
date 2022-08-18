@@ -28,6 +28,7 @@ var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 var exampleZipCode = document.getElementById("exampleZipCode")
 var windEl = document.getElementById("wind")
+var appendCards = document.getElementById("appendCards")
 
 function renderLastData() {
     var cityData = localStorage.getItem("savedCity");
@@ -65,13 +66,17 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
         console.log(courseName)
         searchContainer.append(courseName)
         }
+        console.log(data.courses.length);
         
-        for (var i = 0; i < data.courses.length; index++) {
-            var newDiv = document.createElement("div");
-            console.log(newDiv);
-            appendCards[i].appendChild(newDiv);
-        }
+              
     }
+    
+            for (var i =0; i < data.courses.length; i++); {
+              var row = $("<div>");
+              row.addClass("card")
+              $("#appendCards").append(row);
+              
+            }  
     })
 }
 golfApi()
