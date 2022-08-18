@@ -20,9 +20,6 @@
 // Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 // Finally, You must add your project to the portfolio that you created in Module 2.
 
-var weatherEl = document.getElementById("weatherEl")
-
-
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("results")
@@ -33,6 +30,19 @@ var locationEl = document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 var exampleZipCode = document.getElementById("exampleZipCode")
+var windEl = document.getElementById("wind")
+
+function renderLastData() {
+    var cityData = localStorage.getItem("savedCity");
+    var tempData = localStorage.getItem("savedTemp");
+    var skyData = localStorage.getItem("savedSky");
+    var windData = localStorage.getItem("savedWind");
+
+    locationEl.textContent = ("City: " + cityData);
+    tempEl.textContent = ("Temperature: " + tempData + "°F");
+    skyTextEl.textContent = ("Weather: " + skyData);
+    windEl.textContent = ("Wind Speed: " + windData);
+}
 
 // function golfDetailsApi() {
 //     const options = {
@@ -67,7 +77,6 @@ fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}
         console.log(data)
         for (var i=0; i < data.courses.length; i++){
             console.log(data.courses[i].name)
-
 
         var courseName = document.createElement('li');
         courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
@@ -133,11 +142,7 @@ function getWeatherApi(zipCode) {
         })
 }
 
-
-
-function clearData() {
     
-};
     
 $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
