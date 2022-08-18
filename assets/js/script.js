@@ -7,6 +7,7 @@ var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 var exampleZipCode = document.getElementById("exampleZipCode")
 var windEl = document.getElementById("wind")
+var appendCards = document.getElementById("appendCards")
 
 
 function golfDetailsApi() {
@@ -40,18 +41,34 @@ const golfApi = function (params) {
 })
 .then(function (data) {
     if(data.courses.length > 0){
-        console.log(data)
+        
         for (var i=0; i < data.courses.length; i++){
-            console.log(data.courses[i].name)
-            
-            var courseName = document.createElement('li');
-            courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
-            console.log(courseName)
-            searchContainer.append(courseName)
-        }}
+            let datatopass = data[i]
+            renderCard(datatopass)
+        
+        }
+        
+              
+    }
+    
     })
 }
-
+const renderCard = function(datatopass){
+    console.log(datatopass)
+    var cardContainer = document.createElement("div")
+    var cardBodyDiv = document.createElement("div")
+    var cardHeader = document.createElement("h5")
+    var cardBody = document.createElement("p")
+    cardContainer.append(cardBodyDiv)
+    cardBodyDiv.append(cardHeader, cardBody)
+    cardContainer.setAttribute("class", "card w-25")
+    cardBodyDiv.setAttribute("class", "card-body")
+    cardHeader.setAttribute("class", "card-title")
+    cardBody.setAttribute("class", "card-text")
+    cardHeader.textContent = "Card title"
+    cardBody.textContent = "With supporting text below as a natural lead-in to additional content."
+    appendCards.append(cardContainer)
+} 
 
 const getLongLat = function(zipCode, radius){
     var long = ""
