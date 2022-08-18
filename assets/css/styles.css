@@ -43,15 +43,20 @@ h1 {
     margin: 30px;
     font-size: 20px;
 }
+
 #results li {
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    padding: 4px;
+    font-size: 32px;
 }
+
 p {
     margin-left: 15px;
     margin-top: 10px;
 }
+
 #resultsHeader {
     font-size: 30px;
     color: white;
@@ -60,3 +65,7 @@ p {
     width: 60%;
 }
 
+li {
+    border: 2px rgb(245, 245, 245, 0.7) ridge;
+    margin: 13px 0;
+}
