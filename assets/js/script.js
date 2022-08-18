@@ -50,7 +50,7 @@ var exampleZipCode = document.getElementById("exampleZipCode")
 //         .catch(err => console.error(err));
 //     }
 
-function golfApi() {
+const golfApi = function (params) {
     const options = {
         method: 'GET',
         headers: {
@@ -58,7 +58,7 @@ function golfApi() {
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
-fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
+fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}&lat=${params.lat}&lng=${params.long}`, options)
 .then(function (response) {
     return response.json()
 })
@@ -77,19 +77,37 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
     })
 }
 
-golfApi()
 
-// function searchZip() {
-//     golfApi()
-//     var zipCode = document.getElementById("exampleZipCode").value;
-//     if (zipCode === data.courses[i].zip_code) {
-//         var courseName = document.createElement('li');
-//         courseName.textContent = data.courses[i].name + "  -  " + data.courses[i].distance;
-//         console.log(courseName)
-//         searchContainer.append(courseName)
-//     }
+const getLongLat = function(zipCode, radius){
+        var long = ""
+        var lat = ""
+        const apiKey = "113605930247714900398x83872"
+        console.log(`passed zip code = ${zipCode}`)
+        console.log(`passed radius = ${radius}`)
+fetch(`https://geocode.xyz/+${zipCode}+?json=1&auth=${apiKey}`) 
+    .then(function(response){
+        console.log(response)
+        return response.json()
 
-// }
+    })
+    .then(function(data){
+        console.log(data)
+        console.log(`inner radius = ${radius}`)
+        long = data.longt
+        lat = data.latt
+        // console.log(lat)
+        // console.log(long)
+        let params = {
+            long,
+            lat,
+            radius
+        }
+        console.log(params)
+
+    golfApi(params)
+    })
+}
+
 
 //Columbus weather fetch call
 function getWeatherApi(zipCode) {
@@ -115,7 +133,6 @@ function getWeatherApi(zipCode) {
         })
 }
 
-// getWeatherApi()
 
 
 function clearData() {
@@ -128,12 +145,11 @@ $('.locationBtn').click( "click", function() {
 
 $(".saveBtn").on("click", function () {
     var zipCode = document.getElementById("exampleZipCode").value;
-    console.log(zipCode);
-    var withinDistance = document.getElementById("exampleFormControlSelect1").value;
-    console.log(withinDistance);
-   if (zipCode == "")
+    var radius = document.getElementById("exampleFormControlSelect1").value;
+   if (zipCode === "")
     return;
    else {
-   getWeatherApi(zipCode)
+    getLongLat(zipCode, radius)
+    getWeatherApi(zipCode)
    }
 })
