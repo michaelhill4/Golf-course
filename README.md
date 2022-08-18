@@ -36,7 +36,7 @@ Link to deploy application: ---------
 
 ---
 
-
+![A user clicks on get location and radius selected a list will populate of golf courses.](./assets/img/Golf%20Course%20Finder.gif)
 
 
 
