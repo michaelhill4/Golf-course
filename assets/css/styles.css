@@ -45,11 +45,14 @@ h1 {
 }
 
 #results li {
+    display: block;
+    align-items: center;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     padding: 4px;
     font-size: 32px;
+
 }
 
 p {
@@ -57,7 +60,7 @@ p {
     margin-top: 10px;
 }
 
-#resultsHeader {
+#results {
     font-size: 30px;
     color: white;
     display: flex;
@@ -67,5 +70,7 @@ p {
 
 li {
     border: 2px rgb(245, 245, 245, 0.7) ridge;
-    margin: 13px 0;
+    margin: 13px 0 auto;
+    display: flex;
+    align-items: center;
 }
