@@ -78,7 +78,7 @@ const golfApi = function (params) {
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
-fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}&lat=${lat}&lng=${long}`, options)
+fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}&lat=${params.lat}&lng=${params.long}`, options)
 .then(function (response) {
     return response.json()
 })
