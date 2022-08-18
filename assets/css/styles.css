@@ -48,6 +48,8 @@ h1 {
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    padding: 4px;
+    font-size: 32px;
 }
 
 p {
@@ -61,4 +63,9 @@ p {
     display: flex;
     justify-content: center;
     width: 60%;
+}
+
+li {
+    border: 2px rgb(245, 245, 245, 0.7) ridge;
+    margin: 13px 0;
 }
