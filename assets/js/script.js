@@ -91,7 +91,7 @@ function renderLastData() {
     
     locationEl.textContent = ("City: " + cityData);
     tempEl.textContent = ("Temperature: " + tempData + "°F");
-    skyTextEl.textContent = ("Weather: " + skyData);
+    skyTextEl.textContent = ("Weather: " + skyData + skyIcon);
     windEl.textContent = ("Wind Speed: " + windData + "mph");
 }
 
@@ -113,11 +113,13 @@ function getWeatherApi(zipCode) {
         localStorage.setItem("savedTemp", wTemp)
         
         var wSky = data.list[0].weather[0].main
-        localStorage.setItem("savedSky", wSky)
+        var skyIcon = data.list[0].weather[0].icon
+        localStorage.setItem("savedSky", skyIcon)
             
         var wWind = data.list[0].wind.speed
         localStorage.setItem("savedWind", wWind)
-            
+
+        console.log(data)
         renderLastData()
         })
 }
