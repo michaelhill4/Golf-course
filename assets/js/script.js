@@ -8,22 +8,30 @@ var skyTextEl = document.getElementById("weatherText")
 var exampleZipCode = document.getElementById("exampleZipCode")
 var windEl = document.getElementById("wind")
 
-
-function golfDetailsApi() {
-        const options = {
-                method: 'GET',
-                headers: {
+function golfDetailsApi(courseData) {
+    const options = {
+        method: 'GET',
+        headers: {
             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
 
     };
     
-    fetch('https://golf-course-finder.p.rapidapi.com/course/details?zip=93953&name=Pebble%20Beach%20Golf%20Links', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+    fetch(`https://golf-course-finder.p.rapidapi.com/course/details?zip=${courseData.zip_code}&name=${courseData.name}`, options)
+        .then(function(response){
+
+            return response.json()
+        })
+        .then(function(data){
+
+            console.log(data);
+            var courseDataRender = data
+            renderCard(courseDataRender)
+        })
+       
     }
+  
 
 // golf course fetch call for Columbus coordinates within x mile radius
 const golfApi = function (params) {
@@ -40,18 +48,39 @@ const golfApi = function (params) {
 })
 .then(function (data) {
     if(data.courses.length > 0){
-        console.log(data)
-        for (var i=0; i < data.courses.length; i++){
-            console.log(data.courses[i].name)
-            
-            var courseName = document.createElement('li');
-            courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
-            console.log(courseName)
-            searchContainer.append(courseName)
-        }}
+        
+        for (var i=0; i < 10; i++){
+            let courseData = data.courses[i]
+            // renderCard(courseData)
+            golfDetailsApi(courseData)
+        
+        }
+        
+              
+    }
+    
     })
 }
-
+const renderCard = function(courseDataRender){
+    console.log(`The data that was passed into this function is ${courseDataRender}`)
+    var cardContainer = document.createElement("div")
+    var cardBodyDiv = document.createElement("div")
+    var cardHeader = document.createElement("h5")
+    var cardBody = document.createElement("p")
+    var cardButton = document.createElement("a")
+    cardContainer.append(cardBodyDiv)
+    cardBodyDiv.append(cardHeader, cardBody, cardButton)
+    cardContainer.setAttribute("class", "card w-25")
+    cardBodyDiv.setAttribute("class", "card-body")
+    cardHeader.setAttribute("class", "card-title")
+    cardBody.setAttribute("class", "card-text")
+    cardButton.setAttribute("class", "btn btn-primary")
+    cardHeader.textContent = `${courseDataRender.course_details.result.name}`
+    cardBody.textContent = `${courseDataRender.course_details.result.formatted_address}`
+    cardButton.textContent = `link to course`
+    cardButton.setAttribute("href",`${courseDataRender.course_details.result.url}`)
+    appendCards.append(cardContainer)
+} 
 
 const getLongLat = function(zipCode, radius){
     var long = ""
@@ -117,7 +146,7 @@ function getWeatherApi(zipCode) {
             
         var wWind = data.list[0].wind.speed
         localStorage.setItem("savedWind", wWind)
-        
+
         renderLastData()
     })
 }
