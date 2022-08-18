@@ -25,7 +25,7 @@ h1 {
 .card {
     margin: 20px;
     width: 16%;
-    height: 180px;
+    height: 220px;
     color: white;
     background-color: rgb(20, 160, 224);
     flex-direction: column;
