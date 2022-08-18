@@ -20,9 +20,6 @@
 // Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 // Finally, You must add your project to the portfolio that you created in Module 2.
 
-var weatherEl = document.getElementById("weatherEl")
-
-
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("results")
@@ -30,6 +27,19 @@ var locationEl =  document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
 var exampleZipCode = document.getElementById("exampleZipCode")
+var windEl = document.getElementById("wind")
+
+function renderLastData() {
+    var cityData = localStorage.getItem("savedCity");
+    var tempData = localStorage.getItem("savedTemp");
+    var skyData = localStorage.getItem("savedSky");
+    var windData = localStorage.getItem("savedWind");
+
+    locationEl.textContent = ("City: " + cityData);
+    tempEl.textContent = ("Temperature: " + tempData + "°F");
+    skyTextEl.textContent = ("Weather: " + skyData);
+    windEl.textContent = ("Wind Speed: " + windData);
+}
 
 function golfApi(){
     const options = {
@@ -49,14 +59,6 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
         console.log(data)
         for (var i=0; i < data.courses.length; i++){
             console.log(data.courses[i].name)
-            
-            var courseName = document.createElement('ul');
-            courseName.textContent = data.courses[i].name;
-            console.log(courseName)
-            searchContainer.append(courseName)
-            var courseDistance = document.createElement('li')
-            courseDistance.textContent = data.courses[i].distance + " miles away";
-            searchContainer.append(courseDistance)
 
         var courseName = document.createElement('li');
         courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
@@ -80,21 +82,20 @@ function getWeatherApi(zipCode) {
       })
       .then(function (data) {
         var wCity = data.city.name
-        console.log(wCity)
-        locationEl.append(wCity)
-
-        var wTemp = parseInt(data.list[0].main.temp)
-        tempEl.append(wTemp + "°F")
-
-        var wSky = data.list[0].weather[0].main
-        skyTextEl.append(wSky)
+        localStorage.setItem("savedCity", wCity)
         
-      })
-    }
+        var wTemp = parseInt(data.list[0].main.temp)
+        localStorage.setItem("savedTemp", wTemp)
+        
+        var wSky = data.list[0].weather[0].main
+        localStorage.setItem("savedSky", wSky)
 
-function clearData() {
-    
-};
+        var wWind = data.list[0].wind.speed
+        localStorage.setItem("savedWind", wWind)
+        
+        renderLastData()
+    })
+}
     
 $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
