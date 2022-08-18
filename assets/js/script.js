@@ -26,11 +26,10 @@ var weatherEl = document.getElementById("weatherEl")
 // golf course fetch call for Columbus coordinates within 10 mile radius
 var fetchbutton = document.querySelectorAll(".btn btn-primary")
 var searchContainer = document.getElementById("results")
-
-
 var locationEl =  document.getElementById("location")
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
+var exampleZipCode = document.getElementById("exampleZipCode")
 
 function golfApi(){
     const options = {
@@ -42,14 +41,22 @@ function golfApi(){
     }
 
 fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
-	.then(function (response) {
-        return response.json()
-    })
-	.then(function (data) {
-        if(data.courses.length > 0){
+.then(function (response) {
+    return response.json()
+})
+.then(function (data) {
+    if(data.courses.length > 0){
         console.log(data)
         for (var i=0; i < data.courses.length; i++){
             console.log(data.courses[i].name)
+            
+            var courseName = document.createElement('ul');
+            courseName.textContent = data.courses[i].name;
+            console.log(courseName)
+            searchContainer.append(courseName)
+            var courseDistance = document.createElement('li')
+            courseDistance.textContent = data.courses[i].distance + " miles away";
+            searchContainer.append(courseDistance)
 
         var courseName = document.createElement('li');
         courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
@@ -61,9 +68,12 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
 golfApi()
 
 //Columbus weather fetch call
-function getWeatherApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
-
+function getWeatherApi(zipCode) {
+    console.log("my past data is " + zipCode)
+    let param = zipCode
+    let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${param},us&units=imperial&appid=01c6acda042379425ee30a68789c29c5`;
+    //{curly ${var} brackets for user input on zip code}
+    
     fetch(requestUrl)
       .then(function (response) {
         return response.json();
@@ -77,12 +87,14 @@ function getWeatherApi() {
         tempEl.append(wTemp + "°F")
 
         var wSky = data.list[0].weather[0].main
-        skyTextEl.append(wSky) 
+        skyTextEl.append(wSky)
+        
       })
     }
-      
-getWeatherApi()
 
+function clearData() {
+    
+};
     
 $('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
@@ -93,4 +105,9 @@ $(".saveBtn").on("click", function () {
    console.log(zipCode);
    var withinDistance = document.getElementById("exampleFormControlSelect1").value;
    console.log(withinDistance);
+   if (zipCode == "")
+    return;
+   else {
+   getWeatherApi(zipCode)
+   }
 })
