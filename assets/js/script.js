@@ -35,10 +35,10 @@ function renderLastData() {
     var skyData = localStorage.getItem("savedSky");
     var windData = localStorage.getItem("savedWind");
 
-    locationEl.textContent = ("City: " + cityData);
-    tempEl.textContent = ("Temperature: " + tempData + "°F");
-    skyTextEl.textContent = ("Weather: " + skyData);
-    windEl.textContent = ("Wind Speed: " + windData);
+    locationEl.textContent = ("City:   " + cityData);
+    tempEl.textContent = ("Temperature:   " + tempData + "°F");
+    skyTextEl.textContent = ("Weather:   " + skyData);
+    windEl.textContent = ("Wind Speed:   " + windData);
 }
 
 function golfApi(){

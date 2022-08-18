@@ -27,7 +27,7 @@ h1 {
     width: 16%;
     height: 220px;
     color: white;
-    background-color: rgb(20, 160, 224);
+    background-color: rgb(20, 160, 224, 0.7);
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -42,6 +42,7 @@ h1 {
     color: whitesmoke;
     margin: 30px;
     font-size: 20px;
+    text-align: center;
 }
 
 #results li {
@@ -57,13 +58,13 @@ p {
     margin-top: 10px;
 }
 
-#resultsHeader {
+/* #resultsHeader {
     font-size: 30px;
     color: white;
     display: flex;
     justify-content: center;
     width: 60%;
-}
+} */
 
 li {
     border: 2px rgb(245, 245, 245, 0.7) ridge;
