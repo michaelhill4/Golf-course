@@ -29,8 +29,10 @@ var searchContainer = document.getElementById("results")
 
 
 var locationEl = document.getElementById("location")
+
 var tempEl = document.getElementById("temp")
 var skyTextEl = document.getElementById("weatherText")
+var exampleZipCode = document.getElementById("exampleZipCode")
 
 // function golfDetailsApi() {
 //     const options = {
@@ -57,19 +59,19 @@ function golfApi() {
         }
     }
 fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334&lng=-82.983330', options)
-	.then(function (response) {
-        return response.json()
-    })
-	.then(function (data) {
-        if(data.courses.length > 0){
+.then(function (response) {
+    return response.json()
+})
+.then(function (data) {
+    if(data.courses.length > 0){
         console.log(data)
         for (var i=0; i < data.courses.length; i++){
             console.log(data.courses[i].name)
 
-        // var courseName = document.createElement('li');
-        // courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
-        // console.log(courseName)
-        // searchContainer.append(courseName)
+        var courseName = document.createElement('li');
+        courseName.textContent = data.courses[i].name+" - "+ data.courses[i].distance + " miles away";
+        console.log(courseName)
+        searchContainer.append(courseName)
         }}
     })
 }
@@ -89,9 +91,12 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
 // }
 
 //Columbus weather fetch call
-function getWeatherApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Columbus&units=imperial&appid=01c6acda042379425ee30a68789c29c5';
-
+function getWeatherApi(zipCode) {
+    console.log("my past data is " + zipCode)
+    let param = zipCode
+    let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${param},us&units=imperial&appid=01c6acda042379425ee30a68789c29c5`;
+    //{curly ${var} brackets for user input on zip code}
+    
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -113,6 +118,16 @@ getWeatherApi()
 
 
 $('.locationBtn').click("click", function () {
+        var wSky = data.list[0].weather[0].main
+        skyTextEl.append(wSky)
+        
+      })
+
+function clearData() {
+    
+};
+    
+$('.locationBtn').click( "click", function() {
     $('.modal').modal('show');
 });
 
@@ -121,4 +136,13 @@ $(".saveBtn").on("click", function () {
     console.log(zipCode);
     var withinDistance = document.getElementById("exampleFormControlSelect1").value;
     console.log(withinDistance);
+   var zipCode = document.getElementById("exampleZipCode").value;
+   console.log(zipCode);
+   var withinDistance = document.getElementById("exampleFormControlSelect1").value;
+   console.log(withinDistance);
+   if (zipCode == "")
+    return;
+   else {
+   getWeatherApi(zipCode)
+   }
 })
