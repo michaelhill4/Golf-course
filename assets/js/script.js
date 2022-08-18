@@ -45,21 +45,30 @@ function renderLastData() {
     windEl.textContent = ("Wind Speed: " + windData);
 }
 
-// function golfDetailsApi() {
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
-//             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
-//         }
+function golfDetailsApi(courseData) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
+        }
 
-//     };
+    };
     
-//     fetch('https://golf-course-finder.p.rapidapi.com/course/details?zip=93953&name=Pebble%20Beach%20Golf%20Links', options)
-//         .then(response => response.json())
-//         .then(response => console.log(response))
-//         .catch(err => console.error(err));
-//     }
+    fetch(`https://golf-course-finder.p.rapidapi.com/course/details?zip=${courseData.zip_code}&name=${courseData.name}`, options)
+        .then(function(response){
+
+            return response.json()
+        })
+        .then(function(data){
+
+            console.log(data);
+            var courseDataRender = data
+            renderCard(courseDataRender)
+        })
+       
+    }
+  
 
 const golfApi = function (params) {
     const options = {
@@ -69,16 +78,17 @@ const golfApi = function (params) {
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
-fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}&lat=${params.lat}&lng=${params.long}`, options)
+fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}&lat=${lat}&lng=${long}`, options)
 .then(function (response) {
     return response.json()
 })
 .then(function (data) {
     if(data.courses.length > 0){
         
-        for (var i=0; i < data.courses.length; i++){
-            let datatopass = data[i]
-            renderCard(datatopass)
+        for (var i=0; i < 10; i++){
+            let courseData = data.courses[i]
+            // renderCard(courseData)
+            golfDetailsApi(courseData)
         
         }
         
@@ -87,20 +97,24 @@ fetch(`https://golf-course-finder.p.rapidapi.com/courses?radius=${params.radius}
     
     })
 }
-const renderCard = function(datatopass){
-    console.log(datatopass)
+const renderCard = function(courseDataRender){
+    console.log(`The data that was passed into this function is ${courseDataRender}`)
     var cardContainer = document.createElement("div")
     var cardBodyDiv = document.createElement("div")
     var cardHeader = document.createElement("h5")
     var cardBody = document.createElement("p")
+    var cardButton = document.createElement("a")
     cardContainer.append(cardBodyDiv)
-    cardBodyDiv.append(cardHeader, cardBody)
+    cardBodyDiv.append(cardHeader, cardBody, cardButton)
     cardContainer.setAttribute("class", "card w-25")
     cardBodyDiv.setAttribute("class", "card-body")
     cardHeader.setAttribute("class", "card-title")
     cardBody.setAttribute("class", "card-text")
-    cardHeader.textContent = "Card title"
-    cardBody.textContent = "With supporting text below as a natural lead-in to additional content."
+    cardButton.setAttribute("class", "btn btn-primary")
+    cardHeader.textContent = `${courseDataRender.course_details.result.name}`
+    cardBody.textContent = `${courseDataRender.course_details.result.formatted_address}`
+    cardButton.textContent = `link to course`
+    cardButton.setAttribute("href",`${courseDataRender.course_details.result.url}`)
     appendCards.append(cardContainer)
 } 
 
