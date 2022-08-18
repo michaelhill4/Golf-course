@@ -23,6 +23,7 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .weatherCard {
+    display: flex;
     margin: 20px;
     width: 16%;
     height: 220px;
@@ -72,6 +73,16 @@ p {
 li {
     border: 2px rgb(245, 245, 245, 0.7) ridge;
     margin: 13px 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.adjust {
+    margin-right: 15px;
+}
+
+#resultsHeader {
+    color: whitesmoke;
     display: flex;
     align-items: center;
 }
