@@ -22,7 +22,7 @@ h1 {
     font-size: 115px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.card {
+.weatherCard {
     margin: 20px;
     width: 16%;
     height: 220px;
