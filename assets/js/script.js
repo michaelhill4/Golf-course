@@ -38,7 +38,7 @@ function renderLastData() {
     locationEl.textContent = ("City:   " + cityData);
     tempEl.textContent = ("Temperature:   " + tempData + "°F");
     skyTextEl.textContent = ("Weather:   " + skyData);
-    windEl.textContent = ("Wind Speed:   " + windData);
+    windEl.textContent = ("Wind Speed:   " + windData + "mph");
 }
 
 function golfApi(){
