@@ -76,7 +76,7 @@ fetch('https://golf-course-finder.p.rapidapi.com/courses?radius=10&lat=39.983334
     })
 }
 
-// golfApi()
+golfApi()
 
 // function searchZip() {
 //     golfApi()
@@ -114,14 +114,8 @@ function getWeatherApi(zipCode) {
         })
 }
 
-getWeatherApi()
+// getWeatherApi()
 
-
-$('.locationBtn').click("click", function () {
-        var wSky = data.list[0].weather[0].main
-        skyTextEl.append(wSky)
-        
-      })
 
 function clearData() {
     
@@ -136,10 +130,6 @@ $(".saveBtn").on("click", function () {
     console.log(zipCode);
     var withinDistance = document.getElementById("exampleFormControlSelect1").value;
     console.log(withinDistance);
-   var zipCode = document.getElementById("exampleZipCode").value;
-   console.log(zipCode);
-   var withinDistance = document.getElementById("exampleFormControlSelect1").value;
-   console.log(withinDistance);
    if (zipCode == "")
     return;
    else {
