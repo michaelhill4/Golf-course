@@ -12,7 +12,7 @@ function golfDetailsApi(courseData) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
+            'X-RapidAPI-Key': '3e38d9e2e5mshc43ea6ad6165a78p14752ajsn916fc14b5b60',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
 
@@ -38,7 +38,7 @@ const golfApi = function (params) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
+            'X-RapidAPI-Key': '3e38d9e2e5mshc43ea6ad6165a78p14752ajsn916fc14b5b60',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
