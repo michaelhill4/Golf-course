@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-- [Description](#descritption)
+- [Description](#description)
 - [How to Use](#how-to-use) 
-- [Refrences](#references)
+- [References](#references)
 - [Licenses](#license)
 - [Author Info](#Author-Info)
 
@@ -37,6 +37,7 @@ Link to deploy GitHub Repo: https://github.com/michaelhill4/animated-memory
 
 
 ---
+## How To Use:
 
 ![A user clicks on get location and radius selected a list will populate of golf courses.](./assets/img/Golf%20Course%20Finder.gif)
 
@@ -48,8 +49,6 @@ Link to deploy GitHub Repo: https://github.com/michaelhill4/animated-memory
 - CSS
 - JavaScript
 - APIs
-
-## How To Use
 
 
 ### Installation
