@@ -12,7 +12,7 @@ function golfDetailsApi(courseData) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
 
@@ -38,7 +38,7 @@ const golfApi = function (params) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
@@ -70,7 +70,7 @@ const renderCard = function(courseDataRender){
     var cardButton = document.createElement("a")
     cardContainer.append(cardBodyDiv)
     cardBodyDiv.append(cardHeader, cardBody, cardButton)
-    cardContainer.setAttribute("class", "card w-25")
+    cardContainer.setAttribute("class", "card w-100")
     cardBodyDiv.setAttribute("class", "card-body")
     cardHeader.setAttribute("class", "card-title")
     cardBody.setAttribute("class", "card-text")
