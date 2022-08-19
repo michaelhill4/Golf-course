@@ -86,3 +86,20 @@ li {
     display: flex;
     align-items: center;
 }
+
+
+#appendCards {
+    margin-left: 450px;
+}
+
+/* #appendCards {
+    margin-left: 3px;
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    background-color: rgb(206, 198, 198, 0.8);
+}
+
+.card-body {
+    background-color: rgb(241, 239, 239, 0.8);
+} */
