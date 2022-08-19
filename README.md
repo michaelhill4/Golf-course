@@ -58,6 +58,7 @@ Link to deploy GitHub Repo: https://github.com/michaelhill4/animated-memory
 
 * [Open Weather Map](https://openweathermap.org/forecast5#geo5) - Weather API
 * [Golf Course Finder](https://rapidapi.com/golfambit-golfambit-default/api/golf-course-finder/) - Golf Course API
+* [GeoCode](https://geocode.xyz/api) - Geocoding API
 
 
 
