@@ -12,7 +12,7 @@ function golfDetailsApi(courseData) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
 
@@ -38,7 +38,7 @@ const golfApi = function (params) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '804debc86amsh91473b414b0f4a2p1cd0cfjsncf3998336eab',
+            'X-RapidAPI-Key': 'be37f2dd50mshe48bd97ae022a8ep19bf0ejsn9390f41f4c04',
             'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
         }
     }
@@ -85,7 +85,7 @@ const renderCard = function(courseDataRender){
 const getLongLat = function(zipCode, radius){
     var long = ""
     var lat = ""
-    const apiKey = "113605930247714900398x83872"
+    const apiKey = "664674705834810537856x74089"
     console.log(`passed zip code = ${zipCode}`)
     console.log(`passed radius = ${radius}`)
     fetch(`https://geocode.xyz/+${zipCode}+?json=1&auth=${apiKey}`) 
