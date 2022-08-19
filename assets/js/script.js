@@ -85,7 +85,7 @@ const renderCard = function(courseDataRender){
 const getLongLat = function(zipCode, radius){
     var long = ""
     var lat = ""
-    const apiKey = "113605930247714900398x83872"
+    const apiKey = "664674705834810537856x74089"
     console.log(`passed zip code = ${zipCode}`)
     console.log(`passed radius = ${radius}`)
     fetch(`https://geocode.xyz/+${zipCode}+?json=1&auth=${apiKey}`) 
