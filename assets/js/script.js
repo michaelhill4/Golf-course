@@ -75,6 +75,7 @@ const renderCard = function(courseDataRender){
     cardHeader.setAttribute("class", "card-title")
     cardBody.setAttribute("class", "card-text")
     cardButton.setAttribute("class", "btn btn-primary")
+    cardButton.setAttribute("target", "_blank")
     cardHeader.textContent = `${courseDataRender.course_details.result.name}`
     cardBody.textContent = `${courseDataRender.course_details.result.formatted_address}`
     cardButton.textContent = `link to course`
