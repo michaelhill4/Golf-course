@@ -143,10 +143,10 @@ function getWeatherApi(zipCode) {
         
         var wSky = data.list[0].weather[0].main
         localStorage.setItem("savedSky", wSky)
-            
+        
         var wWind = data.list[0].wind.speed
         localStorage.setItem("savedWind", wWind)
-
+        
         renderLastData()
     })
 }
