@@ -31,7 +31,9 @@ Have a clean repository that meets quality coding standards (file structure, nam
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 
-Link to deploy application: ---------
+Link to deploy application: https://michaelhill4.github.io/animated-memory/
+---
+Link to deploy GitHub Repo: https://github.com/michaelhill4/animated-memory
 
 
 ---
