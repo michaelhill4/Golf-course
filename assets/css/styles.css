@@ -23,12 +23,11 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .weatherCard {
-    margin: 20px;
+    display: flex;
     height: 220px;
     color: white;
     background-color: rgb(20, 160, 224, 0.7);
-    /* flex-direction: column; */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
 }
@@ -39,33 +38,52 @@ h1 {
 
 #results {
     color: whitesmoke;
-    /* margin: 30px;
-    font-size: 20px; */
-    /* text-align: center; */
 }
 
 #results li {
+    display: block;
+    align-items: center;
     width: 100%;
-    /* flex-direction: column;
-    justify-content: center; */
     padding: 4px;
     font-size: 32px;
+
 }
 
-/* p {
-    margin-left: 15px;
-    margin-top: 10px; */
-/* } */
 
-/* #resultsHeader {
+#results {
     font-size: 30px;
     color: white;
-    display: flex;
-    justify-content: center;
     width: 60%;
 } */
 
 li {
     border: 2px rgb(245, 245, 245, 0.7) ridge;
-    margin: 13px 0;
+    margin: 13px 0 auto;
+    display: flex;
+    align-items: center;
 }
+
+.adjust {
+    margin-right: 15px;
+}
+
+#resultsHeader {
+    color: whitesmoke;
+}
+
+
+
+ #appendCards {
+    margin-left: 3px;
+    margin-top: 20px;
+    background-color: rgb(206, 198, 198, 0.8);
+ }
+
+ .card-body {
+    background-color: rgb(241, 239, 239, 0.8);
+}
+
+.pTag {
+    margin-left: 30px;
+}
+
