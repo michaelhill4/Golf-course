@@ -70,7 +70,7 @@ const renderCard = function(courseDataRender){
     var cardButton = document.createElement("a")
     cardContainer.append(cardBodyDiv)
     cardBodyDiv.append(cardHeader, cardBody, cardButton)
-    cardContainer.setAttribute("class", "card w-25")
+    cardContainer.setAttribute("class", "card w-100")
     cardBodyDiv.setAttribute("class", "card-body")
     cardHeader.setAttribute("class", "card-title")
     cardBody.setAttribute("class", "card-text")
